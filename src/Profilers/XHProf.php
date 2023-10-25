@@ -32,11 +32,11 @@ final class XHProf extends AbstractProfiler
     private function getProfileFlagMap()
     {
         /*
-         * This is disabled on PHP 5.5+ as it causes a segfault
+         * This is disabled on PHP 5.5 as it causes a segfault
          *
          * @see https://github.com/perftools/xhgui-collector/commit/d1236d6422bfc42ac212befd0968036986885ccd
          */
-        $noBuiltins = PHP_MAJOR_VERSION === 5 && PHP_MINOR_VERSION > 4 ? 0 : XHPROF_FLAGS_NO_BUILTINS;
+        $noBuiltins = PHP_MAJOR_VERSION === 5 && PHP_MINOR_VERSION === 5 ? 0 : XHPROF_FLAGS_NO_BUILTINS;
 
         return array(
             ProfilingFlags::CPU => XHPROF_FLAGS_CPU,
